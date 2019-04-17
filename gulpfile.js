@@ -129,7 +129,7 @@ gulp.task("replaceHtmlBlock", function() {
 });
 
 // Configure the browserSync task and watch file path for change
-gulp.task("dev", function browserDev(done) {
+gulp.task("watch", function browserDev(done) {
   browserSync.init({
     server: {
       baseDir: "./"

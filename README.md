@@ -28,7 +28,7 @@ Fork, star or use it in your project.
 
 - `gulp` - Compiles scss to css, minify css and js and builds apps ready for production into the **dist** folder.
 
-- `gulp dev` - Starts localhost server with browser-sync, watches HTML, Sass, JS with hot reloading.
+- `gulp watch` - Starts localhost server with browser-sync, watches HTML, Sass, JS with hot reloading.
 
 ## Overwriting Bootstrap Variable in Sass
 
@@ -59,9 +59,3 @@ Fork, star or use it in your project.
     "popper.js": "^1.15.0"
   },
 ```
-
-## Push to your own repo
-
-Please refer to this stackoverflow answer
-
-- https://stackoverflow.com/a/44076938/6441985
