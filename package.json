@@ -1,0 +1,47 @@
+{
+  "name": "bootstrap-4-gulp-4-sass-boilerplate",
+  "version": "1.0.0",
+  "description": "Gulp 4 Boostrap 4 Sass Workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ferdinand Tugano",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^4.1.0",
+    "gh-pages": "^2.0.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "merge-stream": "^1.0.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/designdust/bootstrap-4-gulp-4-sass-boilerplate.git"
+  },
+  "keywords": [
+    "Sass",
+    "Gulp",
+    "4",
+    "bootstrap",
+    "4"
+  ],
+  "bugs": {
+    "url": "https://github.com/designdust/bootstrap-4-gulp-4-sass-boilerplate/issues"
+  },
+  "homepage": "https://github.com/designdust/bootstrap-4-gulp-4-sass-boilerplate#readme"
+}
