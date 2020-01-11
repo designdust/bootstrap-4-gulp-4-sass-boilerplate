@@ -38,12 +38,12 @@ Fork, star or use it in your project.
 
 ```
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "del": "^4.1.0",
-    "gh-pages": "^2.0.1",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^4.0.0",
+    "browser-sync": "^2.26.7",
+    "del": "^4.1.1",
+    "gh-pages": "^2.2.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-html-replace": "^1.6.2",
     "gulp-rename": "^1.4.0",
@@ -53,9 +53,9 @@ Fork, star or use it in your project.
     "merge-stream": "^1.0.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.0",
-    "popper.js": "^1.15.0"
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
   },
 ```
