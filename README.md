@@ -1,4 +1,4 @@
-# Bootstrap 4 Gulp 4 Sass Fontawesome 5 Boilerplate
+# Bootstrap 4.3.1 Gulp 4.0.0 Sass Boilerplate
 
 A not so overkill front-end workflow environment or boilerplate.. whatever you want to call it. bootstrap 4.3.1, For gulp 4, sass and BrowserSync using NPM and Gulp. Automatically compiles and minifies Bootstrap, fontawesome, jquery's node_modules files into the dist folder.
 Fork, star or use it in your project.
