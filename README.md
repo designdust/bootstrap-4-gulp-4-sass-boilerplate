@@ -1,6 +1,6 @@
-# Bootstrap 4.3.1 Gulp 4.0.0 Sass Boilerplate
+# Bootstrap 4.5.1 Gulp 4.0.2 Sass Boilerplate
 
-A not so overkill front-end workflow environment or boilerplate.. whatever you want to call it. bootstrap 4.3.1, For gulp 4, sass and BrowserSync using NPM and Gulp. Automatically compiles and minifies Bootstrap, fontawesome, jquery's node_modules files into the dist folder.
+A not so overkill front-end workflow environment or boilerplate.. whatever you want to call it. bootstrap 4.5.1, For gulp 4, sass and BrowserSync using NPM and Gulp. Automatically compiles and minifies Bootstrap, fontawesome, jquery's node_modules files into the dist folder.
 Fork, star or use it in your project.
 
 ## Requirements
@@ -34,28 +34,4 @@ Fork, star or use it in your project.
 
 - `bootstrap-4-sass-gulp-4-boilerplate/assets/scss/_bootstrap_variable_overrides.scss`
 
-## Dependencies
 
-```
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "del": "^4.1.1",
-    "gh-pages": "^2.2.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-html-replace": "^1.6.2",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "merge-stream": "^1.0.1"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.0",
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.0"
-  },
-```

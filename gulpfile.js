@@ -1,70 +1,62 @@
 "use strict";
 
-var gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  del = require("del"),
-  uglify = require("gulp-uglify"),
-  cleanCSS = require("gulp-clean-css"),
-  rename = require("gulp-rename"),
-  merge = require("merge-stream"),
-  htmlreplace = require("gulp-html-replace"),
-  autoprefixer = require("gulp-autoprefixer"),
-  browserSync = require("browser-sync").create();
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const del = require("del");
+const babel = require('gulp-babel');
+const cleanCSS = require("gulp-clean-css");
+const rename = require("gulp-rename");
+const merge = require("merge-stream");
+const htmlreplace = require("gulp-html-replace");
+const autoprefixer = require("gulp-autoprefixer");
+const browserSync = require("browser-sync").create();
 
 // Clean task
-gulp.task("clean", function() {
-  return del(["dist", "assets/css/app.css"]);
-});
+gulp.task("clean", () => del(["dist", "assets/css/app.css"]));
 
 // Copy third party libraries from node_modules into /vendor
-gulp.task("vendor:js", function() {
-  return gulp
-    .src([
-      "./node_modules/bootstrap/dist/js/*",
-      "./node_modules/jquery/dist/*",
-      "!./node_modules/jquery/dist/core.js",
-      "./node_modules/popper.js/dist/umd/popper.*"
-    ])
-    .pipe(gulp.dest("./assets/js/vendor"));
-});
+gulp.task("vendor:js", () => gulp
+  .src([
+    "./node_modules/bootstrap/dist/js/*",
+    "./node_modules/jquery/dist/*",
+    "!./node_modules/jquery/dist/core.js",
+    "./node_modules/popper.js/dist/umd/popper.*"
+  ])
+  .pipe(gulp.dest("./assets/js/vendor")));
 
 // Copy font-awesome from node_modules into /fonts
-gulp.task("vendor:fonts", function() {
-  return gulp
-    .src([
-      "./node_modules/@fortawesome/fontawesome-free/**/*",
-      "!./node_modules/@fortawesome/fontawesome-free/{less,less/*}",
-      "!./node_modules/@fortawesome/fontawesome-free/{scss,scss/*}",
-      "!./node_modules/@fortawesome/fontawesome-free/.*",
-      "!./node_modules/@fortawesome/fontawesome-free/*.{txt,json,md}"
-    ])
-    .pipe(gulp.dest("./assets/fonts/font-awesome"));
-});
+gulp.task("vendor:fonts", () => gulp
+  .src([
+    "./node_modules/@fortawesome/fontawesome-free/**/*",
+    "!./node_modules/@fortawesome/fontawesome-free/{less,less/*}",
+    "!./node_modules/@fortawesome/fontawesome-free/{scss,scss/*}",
+    "!./node_modules/@fortawesome/fontawesome-free/.*",
+    "!./node_modules/@fortawesome/fontawesome-free/*.{txt,json,md}"
+  ])
+  .pipe(gulp.dest("./assets/fonts/font-awesome")));
 
 // vendor task
 gulp.task("vendor", gulp.parallel("vendor:fonts", "vendor:js"));
 
 // Copy vendor's js to /dist
-gulp.task("vendor:build", function() {
-  var jsStream = gulp
+gulp.task("vendor:build", () => {
+  const jsStream = gulp
     .src([
       "./assets/js/vendor/bootstrap.bundle.min.js",
       "./assets/js/vendor/jquery.slim.min.js",
       "./assets/js/vendor/popper.min.js"
     ])
     .pipe(gulp.dest("./dist/assets/js/vendor"));
-  var fontStream = gulp
+  const fontStream = gulp
     .src(["./assets/fonts/font-awesome/**/*.*"])
     .pipe(gulp.dest("./dist/assets/fonts/font-awesome"));
   return merge(jsStream, fontStream);
 });
 
 // Copy Bootstrap SCSS(SASS) from node_modules to /assets/scss/bootstrap
-gulp.task("bootstrap:scss", function() {
-  return gulp
-    .src(["./node_modules/bootstrap/scss/**/*"])
-    .pipe(gulp.dest("./assets/scss/bootstrap"));
-});
+gulp.task("bootstrap:scss", () => gulp
+  .src(["./node_modules/bootstrap/scss/**/*"])
+  .pipe(gulp.dest("./assets/scss/bootstrap")));
 
 // Compile SCSS(SASS) files
 gulp.task(
@@ -102,31 +94,27 @@ gulp.task(
 );
 
 // Minify Js
-gulp.task("js:minify", function() {
-  return gulp
-    .src(["./assets/js/app.js"])
-    .pipe(uglify())
-    .pipe(
-      rename({
-        suffix: ".min"
-      })
-    )
-    .pipe(gulp.dest("./dist/assets/js"))
-    .pipe(browserSync.stream());
-});
+gulp.task("js:minify", () => gulp
+  .src(["./assets/js/app.js"])
+  .pipe(babel({presets: ['minify']}))
+  .pipe(
+    rename({
+      suffix: ".min"
+    })
+  )
+  .pipe(gulp.dest("./dist/assets/js"))
+  .pipe(browserSync.stream()));
 
 // Replace HTML block for Js and Css file upon build and copy to /dist
-gulp.task("replaceHtmlBlock", function() {
-  return gulp
-    .src(["*.html"])
-    .pipe(
-      htmlreplace({
-        js: "assets/js/app.min.js",
-        css: "assets/css/app.min.css"
-      })
-    )
-    .pipe(gulp.dest("dist/"));
-});
+gulp.task("replaceHtmlBlock", () => gulp
+  .src(["*.html"])
+  .pipe(
+    htmlreplace({
+      js: "assets/js/app.min.js",
+      css: "assets/css/app.min.css"
+    })
+  )
+  .pipe(gulp.dest("dist/")));
 
 // Configure the browserSync task and watch file path for change
 gulp.task("watch", function browserDev(done) {
